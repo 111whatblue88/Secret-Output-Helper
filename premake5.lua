@@ -9,7 +9,7 @@ project "Secret-Output-Helper"
 
   targetdir "build/lib"
 
-  files { "src/**" }
+  files { "outputHelper/src/**" }
 
   filter "configurations:debug"
     defines "DEBUG"
