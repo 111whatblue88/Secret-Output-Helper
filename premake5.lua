@@ -1,7 +1,3 @@
-workspace "Secret-Output-Helper"
-  configurations { "debug", "release" }
-  location "build"
-
 project "Secret-Output-Helper"
 
   kind "SharedLib"
@@ -9,7 +5,7 @@ project "Secret-Output-Helper"
 
   targetdir "build/lib"
 
-  files { "outputHelper/src/**" }
+  files { "outputHelper/src/**.cpp" }
 
   filter "configurations:debug"
     defines "DEBUG"

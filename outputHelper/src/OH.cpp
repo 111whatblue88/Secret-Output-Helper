@@ -33,6 +33,10 @@ const std::string OH::ColorString(std::string text, Color color) {
       return std::format("{}{}{}", ResolveColor(Color::GRAY), text, ResolveColor(Color::RESET));
       break;
     }
+    default: {
+      return std::format("{}{}{}", ResolveColor(Color::RESET), text, ResolveColor(Color::RESET));
+      break;
+    }
   }
 }
 
@@ -62,6 +66,10 @@ const std::string OH::ResolveColor(Color color) {
       return "\e[38;2;80;80;80m";
       break;
     }
+    default: {
+      return "\e[0m";
+      break;
+    }
   }
 }
 
@@ -72,27 +80,27 @@ std:tm* localTime = std::localtime(time);
 const void OH::OutputColor(std::string text, Color color) {
   switch (color) {
     case Color::RED: {
-      std::format("{}{}{}", ResolveColor(Color::RED), text, ResolveColor(Color::RESET));
+      std::cout << std::format("{}{}{}", ResolveColor(Color::RED), text, ResolveColor(Color::RESET));
       break;
     }
     case Color::GREEN: {
-      std::format("{}{}{}", ResolveColor(Color::GREEN), text, ResolveColor(Color::RESET));
+      std::cout << std::format("{}{}{}", ResolveColor(Color::GREEN), text, ResolveColor(Color::RESET));
       break;
     }
     case Color::YELLOW: {
-      std::format("{}{}{}", ResolveColor(Color::YELLOW), text, ResolveColor(Color::RESET));
+      std::cout << std::format("{}{}{}", ResolveColor(Color::YELLOW), text, ResolveColor(Color::RESET));
       break;
     }
     case Color::WHITE: {
-      std::format("{}{}{}", ResolveColor(Color::WHITE), text, ResolveColor(Color::RESET));
+      std::cout << std::format("{}{}{}", ResolveColor(Color::WHITE), text, ResolveColor(Color::RESET));
       break;
     }
     case Color::RESET: {
-      std::format("{}{}{}", ResolveColor(Color::RESET), text, ResolveColor(Color::RESET));
+      std::cout << std::format("{}{}{}", ResolveColor(Color::RESET), text, ResolveColor(Color::RESET));
       break;
     }
     case Color::GRAY: {
-      std::format("{}{}{}", ResolveColor(Color::GRAY), text, ResolveColor(Color::RESET));
+      std::cout << std::format("{}{}{}", ResolveColor(Color::GRAY), text, ResolveColor(Color::RESET));
       break;
     }
   }
