@@ -18,7 +18,10 @@ public:
 
   static const std::string ResolveColor(Color color);
 
-  static const void OutputLog(std::string header, std::string text, std::time_t* time);
+  static const void OutputLog(std::string header, std::string text, Color color);
+  static const void OutputLog(std::string header, std::string text, Color color, std::time_t* time);
+  static const void OutputLog(std::string header, std::string text);
+
   static const void OutputColor(std::string text, Color color);
 
 };
