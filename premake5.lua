@@ -3,7 +3,7 @@ project "Secret-Output-Helper"
   kind "SharedLib"
   language "C++"
   cppdialect "C++20"
-  architecure "x86_64"
+  architecture "x86_64"
 
   targetdir "build/lib"
 
