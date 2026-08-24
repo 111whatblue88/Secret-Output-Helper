@@ -1,6 +1,6 @@
 project "Secret-Output-Helper"
 
-  kind "StaticLib"
+  kind "SharedLib"
   language "C++"
   cppdialect "C++20"
   architecture "x86_64"
