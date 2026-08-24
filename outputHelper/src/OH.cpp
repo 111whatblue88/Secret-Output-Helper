@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <format>
+#include <chrono>
 
 #include "OH.hpp"
 
@@ -73,18 +74,17 @@ const std::string OH::ResolveColor(Color color) {
   }
 }
 
-const void OH::OutputLog(std::string header, std::string text, Color color, std::time_t* time) {
-std:tm* localTime = std::localtime(time);
-  std::cout << std::format("{}[{}] ({}) : {}{}", ResolveColor(color), header, asctime(localTime), text, ResolveColor(Color::RESET)) << "\n";
-}
 const void OH::OutputLog(std::string header, std::string text, Color color) {
-  std::cout << std::format("{}[{}] ({}){}", ResolveColor(color), header, text, ResolveColor(Color::RESET)) << "\n";
+  auto now = std::chrono::system_clock::now();
+  std::cout << std::format("{}[{}] ({}): ({}){}", ResolveColor(color), header, std::format("{:%H:%M}", now), text, ResolveColor(Color::RESET)) << "\n";
 }
+
 const void OH::OutputLog(std::string header, std::string text) {
-  std::cout << std::format("{}[{}] ({}){}", ResolveColor(Color::WHITE), header, text, ResolveColor(Color::RESET)) << "\n";
+  std::cout << std::format("{}[{}]: ({}){}", ResolveColor(Color::WHITE), header, text, ResolveColor(Color::RESET)) << "\n";
 }
 
 const void OH::OutputColor(std::string text, Color color) {
+
   switch (color) {
     case Color::RED: {
       std::cout << std::format("{}{}{}", ResolveColor(Color::RED), text, ResolveColor(Color::RESET));
