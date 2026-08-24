@@ -11,8 +11,10 @@ project "Secret-Output-Helper"
 
   filter "configurations:debug"
     defines "DEBUG"
+    runtime "Debug"
     symbols "On"
 
   filter "configurations:release"
     defines "NDEBUG"
+    runtime "Release"
     symbols "Off"
