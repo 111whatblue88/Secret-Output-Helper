@@ -20,10 +20,12 @@ public:
 
   SOHAPI static const std::string ResolveColor(Color color);
 
-  SOHAPI static const void OutputLog(std::string header, std::string text, Color color);
-  SOHAPI static const void OutputLog(std::string header, std::string text);
+  SOHAPI static void OutputLog(std::string header, std::string text, Color color);
+  SOHAPI static void OutputLog(std::string header, std::string text);
 
-  SOHAPI static const void OutputColor(std::string text, Color color);
+  SOHAPI static void OutputColor(std::string text, Color color);
+
+  SOHAPI static void EnableConsoleProcessing();
 
 };
 

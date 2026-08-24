@@ -1,3 +1,6 @@
+
+#include <windows.h>
+#include <cstdio>
 #include <ctime>
 #include <string>
 #include <iostream>
@@ -7,7 +10,20 @@
 #include "OH.hpp"
 
 using namespace secret;
-  
+
+void OH::EnableConsoleProcessing() {
+  DWORD mode;
+
+  HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
+  if (GetConsoleMode(hOut, &mode)) {
+    SetConsoleMode(
+      hOut,
+      mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING
+    );
+  }
+}
+
 const std::string OH::ColorString(std::string text, Color color) {
   switch (color) {
     case Color::RED: {
@@ -44,46 +60,46 @@ const std::string OH::ColorString(std::string text, Color color) {
 const std::string OH::ResolveColor(Color color) {
   switch (color) {
     case Color::RED: {
-      return "\e[0;31m";
+      return "\x1b[31m";
       break;
     }
     case Color::GREEN: {
-      return "\e[0;32m";
+      return "\x1b[32m";
       break;
     }
     case Color::YELLOW: {
-      return "\e[0;33m";
+      return "\x1b[33m";
       break;
     }
     case Color::WHITE: {
-      return "\e[0;37m";
+      return "\x1b[37m";
       break;
     }
     case Color::RESET: {
-      return "\e[0m";
+      return "\x1b[0m";
       break;
     }
     case Color::GRAY: {
-      return "\e[38;2;80;80;80m";
+      return "\x1b[90m";
       break;
     }
     default: {
-      return "\e[0m";
+      return "\x1b[0m";
       break;
     }
   }
 }
 
-const void OH::OutputLog(std::string header, std::string text, Color color) {
+void OH::OutputLog(std::string header, std::string text, Color color) {
   auto now = std::chrono::system_clock::now();
   std::cout << std::format("{}[{}] ({}): ({}){}", ResolveColor(color), header, std::format("{:%H:%M}", now), text, ResolveColor(Color::RESET)) << "\n";
 }
 
-const void OH::OutputLog(std::string header, std::string text) {
+void OH::OutputLog(std::string header, std::string text) {
   std::cout << std::format("{}[{}]: ({}){}", ResolveColor(Color::WHITE), header, text, ResolveColor(Color::RESET)) << "\n";
 }
 
-const void OH::OutputColor(std::string text, Color color) {
+void OH::OutputColor(std::string text, Color color) {
 
   switch (color) {
     case Color::RED: {

@@ -7,7 +7,11 @@
 #include "OH.hpp"
 
 using namespace secret;
-  
+ 
+void OH::EnableConsoleProcessing() {
+
+}
+
 const std::string OH::ColorString(std::string text, Color color) {
   switch (color) {
     case Color::RED: {
@@ -74,16 +78,16 @@ const std::string OH::ResolveColor(Color color) {
   }
 }
 
-const void OH::OutputLog(std::string header, std::string text, Color color) {
+void OH::OutputLog(std::string header, std::string text, Color color) {
   auto now = std::chrono::system_clock::now();
   std::cout << std::format("{}[{}] ({}): ({}){}", ResolveColor(color), header, std::format("{:%H:%M}", now), text, ResolveColor(Color::RESET)) << "\n";
 }
 
-const void OH::OutputLog(std::string header, std::string text) {
+void OH::OutputLog(std::string header, std::string text) {
   std::cout << std::format("{}[{}]: ({}){}", ResolveColor(Color::WHITE), header, text, ResolveColor(Color::RESET)) << "\n";
 }
 
-const void OH::OutputColor(std::string text, Color color) {
+void OH::OutputColor(std::string text, Color color) {
 
   switch (color) {
     case Color::RED: {
