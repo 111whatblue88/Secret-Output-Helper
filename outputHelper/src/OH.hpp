@@ -4,10 +4,12 @@
 #include <string>
 #include <iostream>
 
+#include "export.hpp"
+
 namespace secret {
 
   
-class OH {
+SOHAPI class OH {
 public: 
 
   enum class Color {
