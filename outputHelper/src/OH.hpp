@@ -9,21 +9,21 @@
 namespace secret {
 
   
-SOHAPI class OH {
+class OH {
 public: 
 
-  enum class Color {
+  enum class SOHAPI Color {
     RED, GREEN, WHITE, GRAY, RESET, YELLOW
   };
 
-  static const std::string ColorString(std::string, Color color);
+  SOHAPI static const std::string ColorString(std::string, Color color);
 
-  static const std::string ResolveColor(Color color);
+  SOHAPI static const std::string ResolveColor(Color color);
 
-  static const void OutputLog(std::string header, std::string text, Color color);
-  static const void OutputLog(std::string header, std::string text);
+  SOHAPI static const void OutputLog(std::string header, std::string text, Color color);
+  SOHAPI static const void OutputLog(std::string header, std::string text);
 
-  static const void OutputColor(std::string text, Color color);
+  SOHAPI static const void OutputColor(std::string text, Color color);
 
 };
 
