@@ -9,7 +9,7 @@ project "Secret-Output-Helper"
 
   filter "system:windows"
     systemversion "latest"
-    defines { "PLATFORM_WINDOWS" }
+    defines { "PLATFORM_WINDOWS", "SOH_BUILD" }
     files { "outputHelper/**.cpp", "outputHelper/**.hpp" }
     removefiles { "outputHelper/**LNX.cpp", "outputHelperLNX.hpp" }
 
@@ -18,12 +18,12 @@ project "Secret-Output-Helper"
     files { "outputHelper/**.cpp", "outputHelper/**.hpp" }
     removefiles { "outputHelper/**WIN.cpp", "outputHelper/**WIN.hpp" }
 
-  filter "configurations:debug"
+  filter "configurations:Debug"
     defines "DEBUG"
     runtime "Debug"
     symbols "On"
 
-  filter "configurations:release"
+  filter "configurations:Release"
     defines "NDEBUG"
     runtime "Release"
     symbols "Off"
