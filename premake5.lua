@@ -10,13 +10,13 @@ project "Secret-Output-Helper"
   filter "system:windows"
     systemversion "latest"
     defines { "PLATFORM_WINDOWS", "SOH_BUILD" }
-    files { "outputHelper/**.cpp", "outputHelper/**.hpp" }
-    removefiles { "outputHelper/**LNX.cpp", "outputHelperLNX.hpp" }
+    files { "outputHelper/src/**.cpp", "outputHelper/src/**.hpp" }
+    removefiles { "outputHelper/src/**LNX.cpp", "outputHelper/src/**LNX.hpp" }
 
   filter "system:linux"
     defines { "PLATFORM_LINUX" }
-    files { "outputHelper/**.cpp", "outputHelper/**.hpp" }
-    removefiles { "outputHelper/**WIN.cpp", "outputHelper/**WIN.hpp" }
+    files { "outputHelper/src/**.cpp", "outputHelper/src/**.hpp" }
+    removefiles { "outputHelper/src/**WIN.cpp", "outputHelper/src/**WIN.hpp" }
 
   filter "configurations:Debug"
     defines "DEBUG"
