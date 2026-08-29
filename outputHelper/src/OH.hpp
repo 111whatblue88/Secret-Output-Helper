@@ -21,7 +21,7 @@ public:
   SOHAPI static const std::string ResolveColor(Color color);
 
   SOHAPI static void OutputLog(std::string header, std::string text, Color color);
-  SOHAPI static void OutputLog(std::string header, std::string text, Color color, std::string file, std::string line);
+  SOHAPI static void OutputLog(std::string header, std::string text, Color color, const char* file, const int line);
   SOHAPI static void OutputLog(std::string header, std::string text);
 
   SOHAPI static void OutputColor(std::string text, Color color);

@@ -82,7 +82,7 @@ void OH::OutputLog(std::string header, std::string text, Color color) {
   auto now = std::chrono::system_clock::now();
   std::cout << std::format("{}[{}] ({}): ({}){}", ResolveColor(color), header, std::format("{:%H:%M}", now), text, ResolveColor(Color::RESET)) << "\n";
 }
-void OH::OutputLog(std::string header, std::string text, Color color, std::string file, std::string line) {
+void OH::OutputLog(std::string header, std::string text, Color color, const char* file, const int line) {
   auto now = std::chrono::system_clock::now();
   std::cout << std::format("{}[{}] ({}): ({}) (FILE:{}) (LINE:{}){}", 
       ResolveColor(color), 
