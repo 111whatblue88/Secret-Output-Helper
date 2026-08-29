@@ -100,9 +100,10 @@ void OH::OutputLog(std::string header, std::string text, Color color, const char
       ResolveColor(color), 
       header, 
       std::format("{:%H:%M}", now), 
+      text, 
       file,
       line,
-      text, ResolveColor(Color::RESET)) << "\n";
+      ResolveColor(Color::RESET)) << "\n";
 }
 
 void OH::OutputLog(std::string header, std::string text) {
